@@ -8,6 +8,6 @@ namespace Autino.Lounge.Services.Interfaces
 {
    public interface IBookingService
    {
-       Task<BookingModel> GetBooking(Guid bookingRef, Guid garageRef);
+       Task<BookingExtendedModel> GetBooking(Guid bookingRef, Guid garageRef);
    }
 }

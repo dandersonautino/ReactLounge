@@ -10,14 +10,14 @@ namespace Autino.Lounge.Services.Concrete
 {
     public class BookingService :ApiServiceBase  ,IBookingService
     {
-        public  async Task<BookingModel> GetBooking(Guid bookingRef, Guid garageRef)
+        public  async Task<BookingExtendedModel> GetBooking(Guid bookingRef, Guid garageRef)
         {
            
             var client = await GetClient($"api/booking/{bookingRef}");
 
             var response = await client 
                 .AddCustomHeader("X-BAYCONNECT-GARAGEREF", garageRef.ToString())
-                .GetAsyncAndGetResponse<BookingModel>();
+                .GetAsyncAndGetResponse<BookingExtendedModel>();
             return response;
        
         }

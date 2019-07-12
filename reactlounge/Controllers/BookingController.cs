@@ -19,12 +19,24 @@ namespace reactlounge.Controllers
         }
 
         [HttpGet("[action]")]
-        public async  Task<BookingModel> GetBooking()
+        public async  Task<BookingExtendedModel> GetBooking()
         {///Todo Secure me
          /// Todo dont hard code me
             Guid bookingRef = new Guid("DEAD52BA-1335-4A96-B116-641BC67B13DD");
             Guid garageRef = new Guid("50DDB444-1BF1-4D1D-87F1-8F89932569CB");
-            return await _bookingService.GetBooking(bookingRef,garageRef );
+            var  model = await _bookingService.GetBooking(bookingRef, garageRef);
+            model.InviteExpired = false;
+            model.Repairs.Add(new RepairExtended(){Name="Change exhaust"});
+            model.Repairs.Add(new RepairExtended() { Name = "Check Types" });
+            model.Garage = new GarageModel()
+            {
+                Name = "dave's garage",
+                Address1 ="add1",
+                Address2 = "add2",
+                Address3 = "add3",
+                PostCode = "RG1 2LR"
+            };
+            return model;
         }
 
         private readonly IBookingService _bookingService;

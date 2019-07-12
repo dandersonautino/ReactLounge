@@ -1,0 +1,388 @@
+﻿/*=== GENERAL===*/
+
+
+body {
+    color: #000;
+}
+
+
+#heroContainer .hero {
+    background: none;
+}
+
+.customer-lounge #heroContainer {
+    background: white url("/Content/images/quicklane/lounge-background.png") no-repeat center top;
+}
+
+
+
+/* =====COLOURS=====*/
+
+
+
+/*blue {
+    #0171bb
+}
+
+yellow {
+    #f4982c
+}*/
+
+
+
+#pageAbout {
+    background: none;
+}
+
+.comm-box.received .comm-box-detail::before {
+    content: none;
+}
+
+.panel-comms section {
+    background-color: #fff
+}
+
+.inner-menu a {
+    color: #fff !important
+}
+
+#pageAbout .footer a, .customer-lounge a {
+    color: #0171bb
+}
+
+
+.customer-lounge .button, .comm-box.client .comm-box-detail, .chat-bubble {
+    background-image: none;
+    background-color: #0171bb;
+}
+
+.customer-lounge .button {
+    background-color: #f4982c;
+}
+
+.comm-box.garage .comm-box-detail {
+    background-color: #f1f1f1
+}
+
+    .comm-box.garage .comm-box-detail::after {
+        box-shadow: 0.4375rem 0.1875rem 0 0 #f1f1f1
+    }
+
+.comm-box.client .comm-box-detail::after {
+    box-shadow: -0.4375rem 0.1875rem 0 0 #0171bb;
+}
+
+#pageDetails .packages-wrap {
+    background-color: #fff
+}
+
+.comm-box.garage .comm-box-icon {
+    background-image: url('https://acstor01weudev.blob.core.windows.net/filestoragepublic/Theme_1_408b27f1-8484-48f8-a1df-2a8f1136ffca.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.comm-box.garage .comm-box-icon, .comm-box.client .comm-box-icon {
+    display: none !important;
+}
+
+
+
+li.accordion-item a.accordion-title, .panel-comms header span, .panel-comms header {
+    font-size: 16px;
+    font-weight: 800;
+    background: #ffffff;
+}
+
+
+
+.accordion-content, .text-center, .customer-lounge .panel-comms .welcome h2 {
+    color: black !important;
+}
+
+
+
+
+/*=== NAVBAR===*/
+
+
+
+#topNavWrapper {
+    height: 120px;
+}
+
+
+.title-bar {
+    background: #ffffff;
+    border-top: 20px solid #0171bb;
+    border-bottom: 0px solid #0171bb;
+    padding: 25px 0px;
+    height: 120px;
+}
+
+
+    .title-bar img {
+        width: 197px;
+    }
+
+
+    .title-bar i.icon-bars {
+        color: #0171bb;
+    }
+
+
+    .title-bar h5.dark-text {
+        display: none
+    }
+
+
+.menu-overlay {
+    background-color: #0171bb;
+}
+
+ul.inner-menu li a.menu-link {
+    color: #f4982c !important;
+}
+
+
+.t-map__link {
+    color: #0171bb !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=== STATUS WHEEL ===*/
+
+
+
+
+
+path {
+    fill: #f5f6f7; /* must match nth-child color */
+}
+
+
+
+g path {
+    fill: #f4982c;
+}
+
+
+
+
+
+    g path:nth-child(2) {
+        fill: #f5f6f7;
+    }
+
+
+
+
+
+/*=== CHAT BOX MAIN ===*/
+
+
+.customer-lounge .panel-comms .welcome {
+    background: #f1f1f1;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+    .customer-lounge .panel-comms .welcome h1 {
+        color: #0171bb;
+    }
+
+    .customer-lounge .panel-comms .welcome h2 {
+        color: #666;
+    }
+
+
+
+
+
+/*=== UPSELL ITEMS ===*/
+
+
+.panel-package {
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px 0px 20px 0px;
+}
+
+
+    .panel-package h2 {
+        font-weight: 800;
+    }
+
+
+
+.panel-package-info {
+    overflow: visible !important;
+}
+
+.panel-package section {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px 10px 15px 10px;
+    margin-top: 49px;
+    border-radius: 0px 0px 20px 0px;
+    margin-bottom: -8px;
+}
+
+
+
+.customer-lounge .panel-package h2 {
+    color: white;
+}
+
+
+
+.customer-lounge .panel-package span {
+    color: #f4982c;
+}
+
+
+
+.customer-lounge .button.hollow {
+    color: #0171bb;
+    border-color: #0171bb;
+}
+
+
+
+
+
+/*=== UPSELL ITEMS MODEL ===*/
+
+
+
+.customer-lounge .reveal a.close:not(.button), .customer-lounge .reveal a:not(.button) {
+    color: #0171bb;
+}
+
+
+
+.add-on-image {
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+
+
+/*=== AIR CON ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3339, #modal_id_3339 .reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/10/AirCon-black.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+/*=== BRAKE FLUID ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3338, #modal_id_3338 .reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/05/BrakeFluid.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+
+
+/*=== BRAKE PADS ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3340, #modal_id_3340 .reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/05/BrakePads.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+
+
+/*=== COOLANT CHANGE ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3333, #modal_id_3333 .reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/05/Coolant.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+
+
+/*=== ENGINE FUEL FLUSH ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3337, #modal_id_3337.reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/05/EngineFlush.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+/*=== PREMIUM VALET ===*/
+
+
+
+.customer-lounge .panel-package-modal_id_3341, #modal_id_3341 .reveal-content .add-on-image {
+    background: #f7f7f7 url("http://www.bayconnect.com/wp-content/uploads/2017/05/Valet.jpg") no-repeat right top;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*=== FOOTER ===*/
+
+
+
+
+
+.footer {
+    background: #f1f1f1;
+    border-top: 5px solid #f4982c;
+}
+
+
+
+.customer-lounge .footer p {
+    color: #000000;
+}
+
+
+
+.customer-lounge .footer a {
+    color: #f4982c;
+}
