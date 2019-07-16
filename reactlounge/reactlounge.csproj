@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\components\Booking\Booking.js" />
+    <None Remove="ClientApp\src\components\Booking\Booking.jsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\components\Booking\Booking.js" />
+    <TypeScriptCompile Include="ClientApp\src\components\Booking\Booking.jsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

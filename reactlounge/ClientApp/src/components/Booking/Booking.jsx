@@ -5,13 +5,13 @@ import React, { Component } from 'react';
 import { GarageInfo } from './GarageInfo';
 
 export class Booking extends Component {
-    static displayName = Booking.name;
+ 
 
     constructor(props) {
         super(props);
         this.state = { booking: [], loading: true };
 
-        fetch('api/booking/getbooking')
+        fetch(process.env.REACT_APP_API_PREFIX+'/api/booking/getbooking')
             .then(response => response.json())
             .then(data => {
                 this.setState({ booking: data, loading: false });
@@ -25,7 +25,7 @@ export class Booking extends Component {
             return (
             <div className="row hero" data-equalizer-watch>
                 <BookingDetailsPanel booking={booking} />
-                    <ChatContainer booking={booking} />
+                <ChatContainer booking={booking} />
                 <GarageInfo booking={booking} />
                 </div>
     );

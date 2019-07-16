@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
-
-export class ChatContainer extends React.Component {
+import ChatWindow from './ChatWindow';
+export class ChatContainer  extends React.Component {
     render() {
         let { booking } = this.props;
         return (
@@ -17,7 +17,7 @@ export class ChatContainer extends React.Component {
         
         </div>
             <div id="commsFeedMessages">
-      Chat window here
+     <ChatWindow />
             </div>
             <a className="scroll-down show-for-small-only t-scroll-down" hidden><i className="icon icon-angle-down"></i></a>
             </div>

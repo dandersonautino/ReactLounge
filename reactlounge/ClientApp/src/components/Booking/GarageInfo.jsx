@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 import GoogleMapReact from 'google-map-react';
 import { Container, Image } from 'semantic-ui-react'
 import SimpleMap from './SimpleMap';
-const AnyReactComponent = ({ text }) => (<div>{text}</div>);
+
 export class GarageInfo extends React.Component {constructor(props){
     super(props);
     this.state ={coord : {
@@ -22,7 +22,7 @@ export class GarageInfo extends React.Component {constructor(props){
       }
     async mapSection(postCode)
     { 
-        console.log(process.env.REACT_APP_API_PREFIX)
+       
         if (postCode)
         {
        let  foundLat: number;
