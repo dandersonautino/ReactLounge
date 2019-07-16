@@ -1,22 +1,70 @@
 ﻿import React, { Component } from 'react';
-
-
-export class GarageInfo extends React.Component {
-
-    render() {
-        let { booking } = this.props;
-        var mapLink = '';
+import Geocode from "react-geocode";
+import GoogleMapReact from 'google-map-react';
+import { Container, Image } from 'semantic-ui-react'
+import SimpleMap from './SimpleMap';
+const AnyReactComponent = ({ text }) => (<div>{text}</div>);
+export class GarageInfo extends React.Component {constructor(props){
+    super(props);
+    this.state ={coord : {
+        center: {
+          lat:  0,
+          lng: 0
+        },
+        zoom: 11
+    },geoLocationSuccess : false};
+  }
+    directionsLink = '';
+    googleApiKey="AIzaSyA-_fIN-X2MKvFnndTYF2_-cVpptKMoNYI";
+    componentDidMount() {
+     
+        this.mapSection(this.props.booking.garage.postCode);
+      }
+    async mapSection(postCode)
+    { if (postCode)
+        {
+       let  foundLat: number;
+       let  foundLong: number;
+         Geocode.setApiKey(this.googleApiKey);
+        await  Geocode.fromAddress(postCode).then(
+            response => {
+              const { lat, lng } = response.results[0].geometry.location;
+              foundLat=lat;
+              foundLong= lng;
+              console.log(lat, lng);
+            },
+            error => {
+              console.error(error);
+            }
+          ); 
+          this.setState({coord : {
+            center: {
+              lat:  foundLat,
+              lng: foundLong
+            },
+            zoom: 11
+          },
+            geoLocationSuccess : true})
       
-        var directionsLink = '';
-
+         
+        }
+        
+    }
+    render() {
+        
+        let { booking } = this.props;
+       
+      if (booking.garage.postCode)
+      {
+        this.directionsLink = <p> <a href={"https://www.google.co.uk/maps/search/" + booking.garage.postCode + "/"} target="_blank" className="t-map__link">Get directions &raquo;</a> </p> 
+      }
+       
+    
         function FieldWithBreak(field) {
             return <div> {field} <br /></div>
         }
 
-        if (booking.garage.postCode) {
-            mapLink = <a href={"https://www.google.co.uk/maps/search/" + booking.garage.postCode + "/"} target="_blank"><div id="map" class="t-map base-colour "></div></a>
-            directionsLink = <p> <a href={"https://www.google.co.uk/maps/search/" + booking.garage.postCode + "/"} target="_blank" class="t-map__link">Get directions &raquo;</a> </p> 
-        }
+ 
        var addressFields =[];
         if (booking.garage.address1) {
             addressFields.push({field: booking.garage.address1} );
@@ -36,12 +84,12 @@ export class GarageInfo extends React.Component {
         }
 //this.state.address = addressFields;
         return (
-          <div class="small-12 medium-3 column mobile-page hide-for-small-only" id="pageAbout">
-            <ul class="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
-                <li class="accordion-item is-active" data-accordion-item>
-                    <a href="#" class="accordion-title">How to find us</a>
-                        <div class="accordion-content padding-none" data-tab-content>
-                                {mapLink}
+          <div className="small-12 medium-3 column mobile-page hide-for-small-only" id="pageAbout">
+            <ul className="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
+                <li className="accordion-item is-active" data-accordion-item>
+                    <a href="#" className="accordion-title">How to find us</a>
+                        <div className="accordion-content padding-none" data-tab-content>
+                        {this.state.geoLocationSuccess && <SimpleMap center={this.state.coord.center}/>}
         
         <div id="map-address">
                             <p>
@@ -52,13 +100,13 @@ export class GarageInfo extends React.Component {
 <span>{item.field}<br/></span>
 )}</div>
                             </p>
-    {directionsLink}
+    {this.directionsLink}
                         </div>
                     </div>
                 </li>
             </ul>
         
-            <a class="chat-bubble show-for-small-only t-chat-button" data-for="#pageChat"><i class="icon icon-2x icon-messages white"></i><span class="white">Chat</span></a>
+            <a className="chat-bubble show-for-small-only t-chat-button" data-for="#pageChat"><i className="icon icon-2x icon-messages white"></i><span className="white">Chat</span></a>
         </div>
         );
     }
