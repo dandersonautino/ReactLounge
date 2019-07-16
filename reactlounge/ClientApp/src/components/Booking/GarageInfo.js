@@ -21,7 +21,9 @@ export class GarageInfo extends React.Component {constructor(props){
         this.mapSection(this.props.booking.garage.postCode);
       }
     async mapSection(postCode)
-    { if (postCode)
+    { 
+        console.log(process.env.REACT_APP_API_PREFIX)
+        if (postCode)
         {
        let  foundLat: number;
        let  foundLong: number;
@@ -31,7 +33,7 @@ export class GarageInfo extends React.Component {constructor(props){
               const { lat, lng } = response.results[0].geometry.location;
               foundLat=lat;
               foundLong= lng;
-              console.log(lat, lng);
+            
             },
             error => {
               console.error(error);
@@ -96,9 +98,9 @@ export class GarageInfo extends React.Component {constructor(props){
                                     <strong> {booking.garage.name} </strong><br />
     
    
-                                    <div>  {addressFields.map((item, key) =>
-<span>{item.field}<br/></span>
-)}</div>
+                                      {addressFields.map((item, key) =>
+<span key={key} >{item.field}<br/></span>
+)}
                             </p>
     {this.directionsLink}
                         </div>

@@ -28,7 +28,7 @@ export class ChatContainer extends React.Component {
             <div className="small-10 medium-9 column">
             <textarea className="autosize" cols="20" data-val="true" data-val-required="Message is required" id="js-chat-area" name="Message" placeholder="Type message here..." rows="2"></textarea>
             <span className="hide-for-small-only"><span className="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span>
-            <div id="js-error" className="error-message" styleName="display:none;"></div>
+            <div id="js-error" className="error-message" style={{display: "none"}}></div>
             </div>
             <div className="small-2 medium-3 column">
             <button id="js-send-message" className="button userDefined send-button t-chat-footer__send">
