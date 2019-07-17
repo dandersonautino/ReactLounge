@@ -12,9 +12,9 @@ namespace AutinoConnect.ChatHub
 {
     public class ChatHub : Microsoft.AspNetCore.SignalR.Hub
     {
-        public void Send(string firstname, string surname, string message, string authKey, int type, string localOffset)
+        public async Task Send(string firstname, string surname, string message, string authKey, int type, string localOffset)
         {
-            var authModel = GetAuthModel(authKey);
+            var authModel = await GetAuthModel(authKey);
 
             var timeSpan = TimeSpan.Parse(localOffset);
 
@@ -34,18 +34,21 @@ namespace AutinoConnect.ChatHub
         }
 
 
-
+        public void SendToAll(string name, string message)
+        {
+            Clients.All.SendAsync("sendToAll", name, message);
+        }
         public async Task JoinGroup(string authKey)
         {
-            var authModel = GetAuthModel(authKey);
+            var authModel = await GetAuthModel(authKey);
             await Groups.AddToGroupAsync(Context.ConnectionId, authModel.JobRef.ToString());
 
         }
 
-        private ChatAuthenticationModel GetAuthModel(string authKey)
+        private async Task <ChatAuthenticationModel> GetAuthModel(string authKey)
         {
             //assume carvue for now
-            return _chatAuthService.GetAuthModelAndValidateData(authKey, 7);
+            return await _chatAuthService.GetAuthModelAndValidateData(authKey, 7);
 
         }
 

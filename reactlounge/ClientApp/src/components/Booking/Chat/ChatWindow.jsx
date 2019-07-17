@@ -14,7 +14,7 @@ export default class ChatWindow extends Component {
       componentDidMount = () => { 
           
         let hubConnection = new HubConnectionBuilder()
-        .withUrl("https://api-local.autinoconnect.com/signalr")
+        .withUrl("https://localhost:44300/signalr")
         .build();
      
     
@@ -30,14 +30,36 @@ export default class ChatWindow extends Component {
             .catch(err => console.log('Error while establishing connection :('));
     
           this.state.hubConnection.on('sendToAll', (nick, receivedMessage) => {
-            const text = "${nick}: ${receivedMessage}";
+            const text = nick +":" +receivedMessage;
             const messages = this.state.messages.concat([text]);
             this.setState({ messages });
           });
         }); 
-      }
-      render() {
-        return <div>Here goes chat</div>;
+      } 
+      sendMessage = () => {
+        this.state.hubConnection
+          .invoke('sendToAll', this.state.nick, this.state.message)
+          .catch(err => console.error(err));
+    
+          this.setState({message: ''});      
+      };
+      render() {return (
+        <div>
+        <br />
+        <input
+          type="text"
+          value={this.state.message}
+          onChange={e => this.setState({ message: e.target.value })}
+        />
+
+        <button onClick={this.sendMessage}>Send</button>
+
+        <div>
+          {this.state.messages.map((message, index) => (
+            <span style={{display: 'block'}} key={index}> {message} </span>
+          ))}
+        </div>
+      </div>)
       }
     }
 

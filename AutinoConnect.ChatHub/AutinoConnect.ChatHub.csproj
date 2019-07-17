@@ -7,8 +7,17 @@
 
   <ItemGroup>
     <PackageReference Include="AutinoConnect.Shared.Model" Version="1.0.0.94" />
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.JS" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.SystemWeb" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Azure.SignalR.AspNet" Version="1.0.10" />
+    <PackageReference Include="Microsoft.Azure.SignalR.Protocols" Version="1.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.0.1" />
+    <PackageReference Include="Scrutor" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Repo\AutinoConnect3\Source\AutinoConnect\Data\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Autino.Lounge.Services\Autino.Lounge.Services.csproj" />
+    <ProjectReference Include="..\AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj" />
     <ProjectReference Include="..\AutinoConnect.Hub.Services\AutinoConnect.Hub.Services.csproj" />
   </ItemGroup>
 

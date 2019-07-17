@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <PackageReference Include="AutinoConnect.Shared.Model" Version="1.0.0.94" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutinoConnect.Shared.Model" Version="1.0.0.94" />
+    <ProjectReference Include="..\..\..\..\..\..\Repo\AutinoConnect3\Source\AutinoConnect\Data\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj" />
   </ItemGroup>
 
 </Project>
