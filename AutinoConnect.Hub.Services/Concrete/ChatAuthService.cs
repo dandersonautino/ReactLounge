@@ -7,6 +7,7 @@ using AutinoConnect.DataAccess.Interfaces;
 using AutinoConnect.Hub.Services.Exceptions;
 using AutinoConnect.Hub.Services.Interface;
 using AutinoConnect.Shared.Model.Chat;
+using AutinoConnect.Utility.Interfaces;
 using Microsoft.Extensions.Logging;
 namespace AutinoConnect.Hub.Services.Concrete
 {

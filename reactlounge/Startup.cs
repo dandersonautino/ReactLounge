@@ -2,6 +2,7 @@ using Autino.Lounge.Services.Concrete;
 using Autino.Lounge.Services.Interfaces;
 using AutinoConnect.Shared.Connectivity.Concrete;
 using AutinoConnect.Shared.Connectivity.Interfaces;
+using AutinoConnect.Utility.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,7 +41,16 @@ namespace reactlounge
             services.AddScoped<IWebApiClientManager, JsonWebApiClientManager>();
             services.AddScoped<IConfigurationService, ConfigurationService>();
             services.AddScoped<IIdentityTokenService, IdentityTokenService>();
-            services.AddScoped<IBookingService, BookingService>();
+            services.Scan(scan =>
+                scan.FromAssemblyOf<IBookingService>()
+                    .AddClasses()
+                    .AsMatchingInterface()
+                    .WithScopedLifetime());
+            services.Scan(scan =>
+                scan.FromAssemblyOf<IModelToQueryStringService>()
+                    .AddClasses()
+                    .AsMatchingInterface()
+                    .WithScopedLifetime());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

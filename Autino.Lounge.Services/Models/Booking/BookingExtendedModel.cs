@@ -16,6 +16,7 @@ namespace Autino.Lounge.Services.Models.Booking
         public string TimeOut => DateTime.Now.AddHours(4).ToString("hh:mm");
         public List<RepairExtended> Repairs { get; set; }
         public GarageModel Garage { get; set; }
+        public string ChatToken { get; set; }
 
         public BookingExtendedModel()
         {

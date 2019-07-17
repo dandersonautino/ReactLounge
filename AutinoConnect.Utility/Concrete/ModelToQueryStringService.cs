@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutinoConnect.Hub.Services.Interface;
+using AutinoConnect.Utility.Interfaces;
 using Newtonsoft.Json;
 
-namespace AutinoConnect.Hub.Services.Concrete
+namespace AutinoConnect.Utility.Concrete
 {
 
         public class ModelToQueryStringService : IModelToQueryStringService

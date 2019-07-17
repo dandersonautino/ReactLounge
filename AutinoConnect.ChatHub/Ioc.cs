@@ -6,6 +6,7 @@ using AutinoConnect.Data.CarVue.Models.Models;
 using AutinoConnect.DataAccess.Concrete;
 using AutinoConnect.DataAccess.Interfaces;
 using AutinoConnect.Hub.Services.Interface;
+using AutinoConnect.Utility.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,9 +30,14 @@ namespace AutinoConnect.ChatHub
                 scan.FromAssemblyOf<IChatAuthService>()
                     .AddClasses()
                     .AsMatchingInterface()
-                    //.WithTransientLifetime());
+                    
                     .WithScopedLifetime());
 
+            services.Scan(scan =>
+                scan.FromAssemblyOf<IModelToQueryStringService>()
+                    .AddClasses()
+                    .AsMatchingInterface()   
+                    .WithScopedLifetime());
 
         }
     }

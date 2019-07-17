@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AutinoConnect.Hub.Services.Interface
+﻿namespace AutinoConnect.Utility.Interfaces
 {
     public interface IModelToQueryStringService
     {

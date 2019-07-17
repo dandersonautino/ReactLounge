@@ -1,0 +1,130 @@
+﻿
+.chat-messages {
+    width: 100%;
+}
+
+.comm-box {
+    flex-wrap: wrap;
+}
+
+/*Comm Box Client - equivalent of .sent class */
+.comm-box.client {
+    justify-content: flex-end;
+    float: none;
+}
+
+.comm-box.client .comm-box-detail {
+    margin-right: 1rem;
+    max-width: 65%;
+    background-image: none;
+    background-color: #0171bb;      
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.3);
+    position: relative;
+    display: block;
+    padding: .5rem;
+    background-image: linear-gradient(to right bottom, #4375C1, #4353C1);
+    border-radius: .5rem;
+    right: 0;
+    color: #fff;       
+}
+
+.comm-box.client .comm-box-detail::after {
+    box-shadow: -0.4375rem 0.1875rem 0 0 #4353C1;
+    right: -.8125rem;
+    content: '';
+    bottom: .3125rem;
+    position: absolute;
+    border: 0px solid;
+    display: block;
+    width: .8125rem;
+    height: .625rem;
+    background-color: transparent;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+
+
+/*Comm Box Garage - equivalent of .received class */
+.comm-box.garage {
+    justify-content: flex-start;
+    float: none;
+}
+
+.comm-box.garage .comm-box-detail {
+    background-color: #f1f1f1;
+    margin-left: 1rem;
+    max-width: 65%;
+    position: relative;
+    display: block;
+    padding: .5rem;
+    border-radius: 8px;
+    border: solid .0625rem #e7e7e7;
+    max-width: 75%;
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.02);
+}
+
+
+.comm-box.garage .comm-box-detail::after {
+    box-shadow: 0.4375rem 0.1875rem 0 0 #f1f1f1;
+    left: -.8125rem;
+    content: '';
+    bottom: .3125rem;
+    position: absolute;
+    border: 0px solid;
+    display: block;
+    width: .8125rem;
+    height: .625rem;
+    background-color: transparent;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+
+.comm-box-date {
+    position: relative;
+    color: #444;
+    font-size: 10px;
+    padding-top: 2px;
+}
+
+.comm-box-date.client {
+    right: 12px;
+}
+
+.comm-box-date.garage {
+    left: 12px;
+}
+
+.row-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+    .loader {
+        border: 5px solid #e9e9e9;
+        border-top: 5px solid #354051;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 24px auto;
+    }
+
+    .error-message {
+        color: #D43F3A;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+

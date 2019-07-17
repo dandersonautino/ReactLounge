@@ -7,15 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "reactlounge", "reactlounge\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autino.Lounge.Services", "Autino.Lounge.Services\Autino.Lounge.Services.csproj", "{D15B3FCA-190C-44C0-910F-F5C47EA34CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutinoConnect.ChatHub", "AutinoConnect.ChatHub\AutinoConnect.ChatHub.csproj", "{EBFDA181-B8A8-44C7-8D9F-1C896AF70C61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutinoConnect.ChatHub", "AutinoConnect.ChatHub\AutinoConnect.ChatHub.csproj", "{EBFDA181-B8A8-44C7-8D9F-1C896AF70C61}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hub", "Hub", "{1C0D55AC-331C-4B20-8BEC-AE7EB6E68BC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutinoConnect.Hub.Services", "AutinoConnect.Hub.Services\AutinoConnect.Hub.Services.csproj", "{4B4A37C1-58EA-4DB5-AFC4-4BD41D977241}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutinoConnect.Hub.Services", "AutinoConnect.Hub.Services\AutinoConnect.Hub.Services.csproj", "{4B4A37C1-58EA-4DB5-AFC4-4BD41D977241}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\..\..\..\..\Repo\AutinoConnect3\Source\AutinoConnect\Data\DataAccess\DataAccess.csproj", "{1C5906D1-F394-4A5C-923B-E6A03F1D0CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutinoConnect.Data.CarVue.Models", "AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj", "{C39FDE8D-CBD9-4712-861A-FAEFE28F7FC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutinoConnect.Data.CarVue.Models", "AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj", "{C39FDE8D-CBD9-4712-861A-FAEFE28F7FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutinoConnect.Utility", "AutinoConnect.Utility\AutinoConnect.Utility.csproj", "{E60A93B1-8705-4A09-832F-880A5F1F24E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{C39FDE8D-CBD9-4712-861A-FAEFE28F7FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C39FDE8D-CBD9-4712-861A-FAEFE28F7FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C39FDE8D-CBD9-4712-861A-FAEFE28F7FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60A93B1-8705-4A09-832F-880A5F1F24E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60A93B1-8705-4A09-832F-880A5F1F24E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60A93B1-8705-4A09-832F-880A5F1F24E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60A93B1-8705-4A09-832F-880A5F1F24E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

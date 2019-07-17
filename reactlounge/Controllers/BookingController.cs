@@ -36,8 +36,12 @@ namespace reactlounge.Controllers
                 Address3 = "add3",
                 PostCode = "RG1 2LR"
             };
+            model.ChatToken =
+                "H4sIAAAAAAAEAAXBSxKCIAAA0AOxUCOSFm600rEEU4txWWgOYajlD07fe4Xh1smoJG2xSXkZNHjEgNDuLIXQGxxHD9aAGiwROghEW2Lsd4KNmnoV5lcI0ch6PZoqK6YdtyVZRKin++0Zxi2Rzj7i3bwqn5HA/znZ4G5fYQXjNjnO5XqxEq3ZB9McTinSLv/S1AK17MmweN4fI9nOYpgAAAA=";
             return model;
         }
+
+        
 
         private readonly IBookingService _bookingService;
     }

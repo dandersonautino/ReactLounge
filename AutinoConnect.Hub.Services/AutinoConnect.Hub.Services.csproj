@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\Repo\AutinoConnect3\Source\AutinoConnect\Data\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj" />
+    <ProjectReference Include="..\AutinoConnect.Utility\AutinoConnect.Utility.csproj" />
   </ItemGroup>
 
 </Project>

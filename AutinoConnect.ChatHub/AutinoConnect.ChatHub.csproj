@@ -29,6 +29,7 @@
     <ProjectReference Include="..\Autino.Lounge.Services\Autino.Lounge.Services.csproj" />
     <ProjectReference Include="..\AutinoConnect.Data.CarVue.Models\AutinoConnect.Data.CarVue.Models.csproj" />
     <ProjectReference Include="..\AutinoConnect.Hub.Services\AutinoConnect.Hub.Services.csproj" />
+    <ProjectReference Include="..\AutinoConnect.Utility\AutinoConnect.Utility.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@ export class ChatContainer  extends React.Component {
         
         </div>
             <div id="commsFeedMessages">
-     <ChatWindow />
+     <ChatWindow ChatToken={booking.chatToken}/>
             </div>
             <a className="scroll-down show-for-small-only t-scroll-down" hidden><i className="icon icon-angle-down"></i></a>
             </div>
