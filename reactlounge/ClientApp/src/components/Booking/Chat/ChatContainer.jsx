@@ -1,8 +1,52 @@
 ﻿import React, { Component } from 'react';
-import ChatWindow from './ChatWindow';
-export class ChatContainer  extends React.Component {
+
+import {HubConnectionBuilder } from '@aspnet/signalr';
+import ChatMessage from './ChatMessage';
+export class ChatContainer  extends React.Component {constructor(props) {
+    super(props);
+    
+    this.state = {
+      chatToken:props.booking.chatToken,
+      messages: [],
+      hubConnection: null, 
+      loading : true
+    };
+   
+  }
+  componentDidMount = () => { 
+    var url =process.env.REACT_APP_API_PREFIX+'/api/chat?authhash='+ encodeURIComponent(this.state.chatToken);
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        this.setState({ messages: data.messages, loading: false });
+    });
+    // let hubConnection = new HubConnectionBuilder()
+    // .withUrl(process.env.REACT_APP_API_PREFIX)
+    // .build();
+ 
+
+
+    // const nick = window.prompt("Your name:", "John");
+
+
+
+    // this.setState({ hubConnection, nick }, () => {
+    //   this.state.hubConnection
+    //     .start()
+    //     .then(() => console.log('Connection started!'))
+    //     .catch(err => console.log('Error while establishing connection :('));
+
+    //   this.state.hubConnection.on('sendToAll', (nick, receivedMessage) => {
+    //     const text = nick +":" +receivedMessage;
+    //     const messages = this.state.messages.concat([text]);
+    //     this.setState({ messages });
+    //   });
+    // }); 
+  } 
     render() {
-        let { booking } = this.props;
+        let { booking } = this.props; 
+        const messages = this.state.messages.map((message , index)=> <ChatMessage key={index} message={message}/>);
+        const chatMessageArea =this.state.loading ?     <div className="loader"></div> :  <div className="chat-messages">{messages}</div>
         return (
         <div className="small-12 medium-6 column mobile-page" id="pageChat">
             <div className="panel-comms">
@@ -17,14 +61,11 @@ export class ChatContainer  extends React.Component {
         
         </div>
             <div id="commsFeedMessages">
-     <ChatWindow ChatToken={booking.chatToken}/>
+            {chatMessageArea}
             </div>
             <a className="scroll-down show-for-small-only t-scroll-down" hidden><i className="icon icon-angle-down"></i></a>
             </div>
-
-         
-            </section><footer className="t-chat-footer">
-            <div className="row collapse comm-box-edit">
+           
             <div className="small-10 medium-9 column">
             <textarea className="autosize" cols="20" data-val="true" data-val-required="Message is required" id="js-chat-area" name="Message" placeholder="Type message here..." rows="2"></textarea>
             <span className="hide-for-small-only"><span className="field-validation-valid" data-valmsg-for="Message" data-valmsg-replace="true"></span></span>
@@ -36,8 +77,13 @@ export class ChatContainer  extends React.Component {
             <span className="show-for-small-only icon-wrap t-chat-footer__plane"><i className="icon icon-1-5x icon-paperplane-dark"></i></span>
             </button>
             </div>
+
+            <footer className="t-chat-footer">
+            <div className="row collapse comm-box-edit">
+        
             </div>
-            </footer>
+            </footer>  
+            </section>
                 </div>
             </div>
 );
