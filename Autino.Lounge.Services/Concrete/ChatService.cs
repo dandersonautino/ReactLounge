@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Autino.Lounge.Services.Exceptions;
 using Autino.Lounge.Services.Interfaces;
 using AutinoConnect.Shared.Connectivity.Interfaces;
+using AutinoConnect.Shared.Model;
 using AutinoConnect.Shared.Model.Chat;
 using AutinoConnect.Utility.Interfaces;
 
@@ -30,6 +31,41 @@ namespace Autino.Lounge.Services.Concrete
             return response;
 
         }
+        public async Task SendChat(string authCode,string message)
+        {
+            var authModel = Authenticate(authCode);
+         //TODO chage the put endpoitn so it works with client chat
+            ChatMessageModel chatMessageModel = new ChatMessageModel()
+            {
+                JobRef = authModel.JobRef.Value,
+                Message = message,
+                MessageTypeId = (int)ChatMessageType.Clientchat,
+                User =  new GarageUserModel()
+                {
+                    FirstName = "a",
+                    LastName = "Other",
+                    Email = "dave@dave.com"
+                }
+            };
+            var client = await GetClient("api/v1/GarageChat/");
+            try
+            {
+                await client.WithJsonContent<ChatMessageModel>(chatMessageModel)
+                    .AddCustomHeader("X-BAYCONNECT-GARAGEREF", authModel.GarageRef.ToString())
+                    .PutAsyncAndGetResponse<ChatPutResponseModel>();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+          
+            
+
+
+
+        }
+
         private ChatAuthenticationModel Authenticate(string authCode)
         {
             ChatAuthenticationModel authDataModel;
@@ -53,8 +89,6 @@ namespace Autino.Lounge.Services.Concrete
             }
 
             var remId = authDataModel.JobRef.Value.ToString();
-
-
             return authDataModel;
         }
         public ChatService(IWebApiClientManager webApiClientManager, IIdentityTokenService identityTokenService, IConfigurationService configurationService, IModelToQueryStringService modelToQueryStringService) : base(webApiClientManager, identityTokenService, configurationService)

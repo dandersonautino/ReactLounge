@@ -28,6 +28,7 @@ namespace reactlounge.Controllers
             model.InviteExpired = false;
             model.Repairs.Add(new RepairExtended(){Name="Change exhaust"});
             model.Repairs.Add(new RepairExtended() { Name = "Check Types" });
+            model.UtcOffset = "01:00:00";
             model.Garage = new GarageModel()
             {
                 Name = "dave's garage",

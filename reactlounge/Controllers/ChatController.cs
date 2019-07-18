@@ -23,8 +23,15 @@ namespace reactlounge.Controllers
         {
             return await  _chatService.GetChatHistory(authHash);
         }
-      
-      
+        [HttpGet("[action]")]
+        public async Task<ActionResult> ChatSend(string authHash, string message)
+        {
+         
+                await _chatService.SendChat(authHash,  message);
+            return Ok();
+
+
+        }
 
         private readonly IChatService _chatService;
     }

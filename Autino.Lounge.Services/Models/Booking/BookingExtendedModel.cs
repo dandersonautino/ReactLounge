@@ -17,6 +17,7 @@ namespace Autino.Lounge.Services.Models.Booking
         public List<RepairExtended> Repairs { get; set; }
         public GarageModel Garage { get; set; }
         public string ChatToken { get; set; }
+        public string UtcOffset { get; set; }
 
         public BookingExtendedModel()
         {

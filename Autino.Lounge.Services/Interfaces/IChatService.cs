@@ -11,8 +11,8 @@ namespace Autino.Lounge.Services.Interfaces
         //bool DoesJobIdBelongToUserId(int userId, string jobId);
         //  ChatIndexViewModel GetChatIndexViewModel(Guid jobId, User user);
         Task<ChatHistoryResponseModel>  GetChatHistory(string authCode);
-       // ShouldShowChatWindow ShouldShowChat(string jobId);
-        //void SendChat(string authCode, int userId, string message);
+        // ShouldShowChatWindow ShouldShowChat(string jobId);
+        Task SendChat(string authCode, string message);
         //bool SendLoungeInvite(string authCode, int userId);
         //bool IsJobSynchedToAutinoConnect(string jobId);
     }

@@ -18,7 +18,7 @@ export default class ChatMessage extends React.Component {
             default:
                 return 'garage';
         }}
-        const MessageClass =getClass(message.message.messageTypeId);
+        const MessageClass =getClass(message.messageTypeId);
         return <div className={'comm-box ' + MessageClass}>        
         <div className={'comm-box-icon hide-for-small-only t-user-icon--'+MessageClass}>
             <i className="icon icon-user icon-1-5x"></i>
