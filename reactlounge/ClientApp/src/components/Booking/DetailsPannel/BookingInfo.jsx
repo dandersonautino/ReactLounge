@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import DonutChart from 'react-donut-chart';
 let statusConfig =
 {
     label: 'Booked',
@@ -43,13 +44,17 @@ export class BookingInfo extends React.Component {
             <li className="accordion-item booking-info is-active" data-accordion-item>
                 <a href="#" className="accordion-title">JobDetails</a>
                 <div className="accordion-content" data-tab-content>
-
-                    <div id="doughnutChart" className="chart">
-                        <div className="chartText">
-                            <i className="icon icon-calendar icon-2x"></i>                       
-                            <span> { statusConfig.label } </span>
-                        </div>
-                    </div>
+                <DonutChart height={200} width={200}  legend={false} colors={[statusConfig.statusGraphColour]} clickToggle={false}
+    data={[{
+        label:  statusConfig.label ,
+        value: 25
+    },
+    {
+        label: '',
+        value: 75,
+        isEmpty: true
+    }]} />
+                  
                     <div className="row ">
                         <div className="small-6 medium-12 column">
                             <div className="small-12 column">

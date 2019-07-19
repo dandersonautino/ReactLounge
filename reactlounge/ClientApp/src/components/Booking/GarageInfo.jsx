@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 import GoogleMapReact from 'google-map-react';
 import { Container, Image } from 'semantic-ui-react'
 import SimpleMap from './SimpleMap';
-
+import GarageFooter from './GarageFooter';
 export class GarageInfo extends React.Component {constructor(props){
     super(props);
     this.state ={coord : {
@@ -106,8 +106,11 @@ export class GarageInfo extends React.Component {constructor(props){
                         </div>
                     </div>
                 </li>
-            </ul>
-        
+            </ul><div className="footer show-for-small-only">
+        <div className="panel-light footer-card">
+        <GarageFooter booking={booking}/>
+        </div>
+        </div>
             <a className="chat-bubble show-for-small-only t-chat-button" data-for="#pageChat"><i className="icon icon-2x icon-messages white"></i><span className="white">Chat</span></a>
         </div>
         );
