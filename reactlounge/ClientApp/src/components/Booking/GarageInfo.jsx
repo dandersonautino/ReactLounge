@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 import GoogleMapReact from 'google-map-react';
 import { Container, Image } from 'semantic-ui-react'
 import SimpleMap from './SimpleMap';
-import GarageFooter from './GarageFooter';
+import GarageFooter from './Footer/GarageFooter';
 export class GarageInfo extends React.Component {constructor(props){
     super(props);
     this.state ={coord : {

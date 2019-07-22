@@ -39,17 +39,17 @@ namespace reactlounge.Controllers
             };
             model.GarageCommunications.Add(new GarageCommunicationMethodViewModel()
             {
-                ContactMethodType = CommunicationMethodType.Website,
+                ContactMethodType = CommunicationMethodType.Website.ToString(),
                 Value = "bbc.co.uk"
             });
             model.GarageCommunications.Add(new GarageCommunicationMethodViewModel()
             {
-                ContactMethodType = CommunicationMethodType.Email,
+                ContactMethodType = CommunicationMethodType.Email.ToString(),
                 Value = "dave@dave.com"
             });
             model.GarageCommunications.Add(new GarageCommunicationMethodViewModel()
             {
-                ContactMethodType = CommunicationMethodType.Telephone,
+                ContactMethodType = CommunicationMethodType.Telephone.ToString(),
                 Value = "0777712345"
             });
             model.TermsAndConditions = "My terms and conditions";

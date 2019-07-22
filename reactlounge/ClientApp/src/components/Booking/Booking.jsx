@@ -3,7 +3,7 @@ import { ExpiredBooking } from './ExpiredBooking';
 import { ChatContainer } from './Chat/ChatContainer';
 import React, { Component } from 'react';
 import { GarageInfo } from './GarageInfo';
-import GarageFooter from './GarageFooter';
+import GarageFooter from './Footer/GarageFooter';
 
 export class Booking extends Component {
  

@@ -108,7 +108,8 @@ namespace Autino.Lounge.Services.Models.Booking
     }
     public class GarageCommunicationMethodViewModel
     {
-        public CommunicationMethodType ContactMethodType { get; set; }
+        public string ContactMethodType { get; set; }
+       
         public string Value { get; set; }
     }
     public class RepairExtended

@@ -1,11 +1,16 @@
 ﻿import React, { Component } from 'react';
+import CommunicationItem from './CommunicationItem';
+import TermsAndNumbers from './TermsAndNumbers';
 export default class GarageFooter extends React.Component {
+    
     render(){
+        let { booking } = this.props;
         return  (
         <div className="row">
 
     <div className="medium-3 column">  
-    contact info
+    {booking.garageCommunications.map((comm, i) => {
+            return (<CommunicationItem key={i} comms={comm} />) })}
     </div>
 
     <div className="medium-4 column">
@@ -15,7 +20,7 @@ export default class GarageFooter extends React.Component {
             Facillities
             </div>
             <div className="medium-2 column">
-                company numbers
+                <TermsAndNumbers booking={booking}/>
                 </div>
         </div>
      
