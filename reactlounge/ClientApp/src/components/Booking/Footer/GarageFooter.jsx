@@ -2,7 +2,13 @@
 import CommunicationItem from './CommunicationItem';
 import TermsAndNumbers from './TermsAndNumbers';
 export default class GarageFooter extends React.Component {
-    
+    constructor() {
+    super();
+    this.state = {  language: 'en'};
+
+  
+}
+
     render(){
         let { booking } = this.props;
         return  (
@@ -10,7 +16,7 @@ export default class GarageFooter extends React.Component {
 
     <div className="medium-3 column">  
     {booking.garageCommunications.map((comm, i) => {
-            return (<CommunicationItem key={i} comms={comm} />) })}
+            return (<CommunicationItem key={i} comms={comm} language={booking.language} />) })}
     </div>
 
     <div className="medium-4 column">
@@ -20,7 +26,7 @@ export default class GarageFooter extends React.Component {
             Facillities
             </div>
             <div className="medium-2 column">
-                <TermsAndNumbers booking={booking}/>
+                <TermsAndNumbers language={this.state.language}  booking={booking}/>
                 </div>
         </div>
      

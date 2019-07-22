@@ -59,6 +59,7 @@ namespace reactlounge.Controllers
             model.Facilities = Facilities.DisabledAccess & Facilities.Magazines;
         model.ChatToken =
                 "H4sIAAAAAAAEAAXBSxKCIAAA0AOxUCOSFm600rEEU4txWWgOYajlD07fe4Xh1smoJG2xSXkZNHjEgNDuLIXQGxxHD9aAGiwROghEW2Lsd4KNmnoV5lcI0ch6PZoqK6YdtyVZRKin++0Zxi2Rzj7i3bwqn5HA/znZ4G5fYQXjNjnO5XqxEq3ZB9McTinSLv/S1AK17MmweN4fI9nOYpgAAAA=";
+            model.Language = "qwerty";
             return model;
         }
 

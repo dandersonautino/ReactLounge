@@ -1,7 +1,8 @@
 ﻿import React, { Component } from 'react';
-
+import GetTranslations from '../..//Resources/GetTranslations';
 import {HubConnectionBuilder } from '@aspnet/signalr';
 import ChatMessage from './ChatMessage';
+import LocalizedStrings from 'react-localization';
 export class ChatContainer  extends React.Component {constructor(props) {
     super(props);
     
@@ -69,6 +70,7 @@ this.setState({ canSend: true, message:''});
   } 
     render() {
         let { booking } = this.props; 
+        let    strings = GetTranslations().SetLanguage(booking.language);
         const messages = this.state.messages.map((message , index)=> <ChatMessage key={index} message={message}/>);
         const chatMessageArea =this.state.loading ?     <div className="loader"></div> :  <div className="chat-messages">{messages}</div>
        
@@ -85,7 +87,7 @@ this.setState({ canSend: true, message:''});
             <div id="commsFeed">
             <div className="welcome hide-for-small-only t-banner">
                                 <h1 className="t-banner__hello"> {booking.contact.firstName} </h1>
-            <h2 className="t-banner__welcome">Welcome to your booking</h2>
+            <h2 className="t-banner__welcome">{strings.Lounge_CommWelcome}</h2>
 
         
         </div>
@@ -103,7 +105,7 @@ this.setState({ canSend: true, message:''});
             </div>
             <div className="small-2 medium-3 column">
             <button id="js-send-message" className="button userDefined send-button t-chat-footer__send">
-            <span className="hide-for-small-only">Send</span>
+            <span className="hide-for-small-only">{strings.Action_Send}</span>
             <span className="show-for-small-only icon-wrap t-chat-footer__plane"><i className="icon icon-1-5x icon-paperplane-dark"></i></span>
             </button>
             </div>

@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import DonutChart from 'react-donut-chart';
+import GetTranslations from '../..//Resources/GetTranslations';
 let statusConfig =
 {
     label: 'Booked',
@@ -14,23 +15,25 @@ export class BookingInfo extends React.Component {
 
     render() {
         let { booking } = this.props;
+        let    strings = GetTranslations().SetLanguage(booking.language);
+        
        function getStatusColour(status) {
             switch (status) {
             case 'Booked':
-                statusConfig.label = 'Booked';
+                statusConfig.label = strings.Label_Booked;
                 statusConfig.statusGraphColour = "#c26565";
                 break;
             case 'InProgress':
             case 'Paused':
             case 'Complete':
-                statusConfig.label = 'In Progress';
+                statusConfig.label = strings.Label_InProgress;
                 statusConfig.statusGraph = 200;
                 statusConfig.statusGraphRemaining = 100;
                 statusConfig.statusGraphColour = "#e79b51";
                 break;
             case 'Closed':
             case 'FollowUp':
-                statusConfig.label = 'Done';
+                statusConfig.label = strings.Label_Done;
                 statusConfig.statusGraph = 300;
                 statusConfig.statusGraphRemaining = 0;
                 statusConfig.statusGraphColour = "#35a466";
@@ -39,10 +42,10 @@ export class BookingInfo extends React.Component {
             }
         };
         getStatusColour(booking.jobStatus);
-
+       
         return (
             <li className="accordion-item booking-info is-active" data-accordion-item>
-                <a href="#" className="accordion-title">JobDetails</a>
+                <a href="#" className="accordion-title">{strings.JobDetails}</a>
                 <div className="accordion-content" data-tab-content>
                 <DonutChart height={200} width={200}  legend={false} colors={[statusConfig.statusGraphColour]} clickToggle={false}
     data={[{
@@ -58,7 +61,7 @@ export class BookingInfo extends React.Component {
                     <div className="row ">
                         <div className="small-6 medium-12 column">
                             <div className="small-12 column">
-                              Due In
+                            {strings.Lounge_DateTimeIn}
                                 </div>
                             <div className="small-12 column t-details__datetime-in">
                                 <strong>   {booking.dateIn} </strong><br />
@@ -68,7 +71,7 @@ export class BookingInfo extends React.Component {
                         </div>
                         <div className="small-6 medium-12 column">
                             <div className="small-12 column">
-                               Due out
+                               {strings.Lounge_DueOut}
                                 </div>
                             <div className="small-12 column t-details__datetime-out">
                                 <strong> {booking.dateOut} </strong><br />

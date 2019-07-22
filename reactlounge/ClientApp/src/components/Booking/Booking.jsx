@@ -4,22 +4,35 @@ import { ChatContainer } from './Chat/ChatContainer';
 import React, { Component } from 'react';
 import { GarageInfo } from './GarageInfo';
 import GarageFooter from './Footer/GarageFooter';
-
+import { data } from '../Resources/Resources'
+import LocalizedStrings from 'react-localization';
+import GetTranslations from '../Resources/GetTranslations';
 export class Booking extends Component {
  
 
-    constructor(props) {
-        super(props);
-        this.state = { booking: [], loading: true };
+    constructor() {
+        super();
+       var s = new LocalizedStrings(data);
+        this.state = { 
+             booking: [],
+             loading: true 
+            };
 
         fetch(process.env.REACT_APP_API_PREFIX+'/api/booking/getbooking')
             .then(response => response.json())
             .then(data => {
-                this.setState({ booking: data, loading: false });
+                this.setState({ booking: data, loading: false});
+                
+             
             });
+          
+           
     }
-
-    static renderBooking(booking) {
+  
+  
+   
+  
+ renderBooking(booking) {
         if (booking.inviteExpired) {
             return (   <ExpiredBooking />);
         } else {
@@ -48,13 +61,13 @@ export class Booking extends Component {
         <div id="heroContainer">
     
             <div className="row hero" data-equalizer-watch>
-                <BookingDetailsPanel booking={booking} />
-                <ChatContainer booking={booking} />
-                <GarageInfo booking={booking} />
+                <BookingDetailsPanel  booking={booking} />
+                <ChatContainer   booking={booking} />
+                <GarageInfo   booking={booking} />
             </div>
         </div>
         <div id="footerContainer">
-            <GarageFooter booking={booking}/>
+            <GarageFooter    booking={booking}/>
         </div>
         </div>
     );
@@ -62,9 +75,10 @@ export class Booking extends Component {
 }
 
 render() {
+  //let  strings = this.state.resx;
     let contents = this.state.loading
         ? <p><em>Loading...</em></p>
-        : Booking.renderBooking(this.state.booking);
+        : this.renderBooking(this.state.booking);
 
     return (
        <div>

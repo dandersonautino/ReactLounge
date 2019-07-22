@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 import { Container, Image } from 'semantic-ui-react'
 import SimpleMap from './SimpleMap';
 import GarageFooter from './Footer/GarageFooter';
+import GetTranslations from '../Resources/GetTranslations';
 export class GarageInfo extends React.Component {constructor(props){
     super(props);
     this.state ={coord : {
@@ -55,10 +56,10 @@ export class GarageInfo extends React.Component {constructor(props){
     render() {
         
         let { booking } = this.props;
-       
+        let    strings = GetTranslations().SetLanguage(booking.language);
       if (booking.garage.postCode)
       {
-        this.directionsLink = <p> <a href={"https://www.google.co.uk/maps/search/" + booking.garage.postCode + "/"} target="_blank" className="t-map__link">Get directions &raquo;</a> </p> 
+        this.directionsLink = <p> <a href={"https://www.google.co.uk/maps/search/" + booking.garage.postCode + "/"} target="_blank" className="t-map__link">{strings.Lounge_GetDirections} &raquo;</a> </p> 
       }
        
     
@@ -89,7 +90,7 @@ export class GarageInfo extends React.Component {constructor(props){
           <div className="small-12 medium-3 column mobile-page hide-for-small-only" id="pageAbout">
             <ul className="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
                 <li className="accordion-item is-active" data-accordion-item>
-                    <a href="#" className="accordion-title">How to find us</a>
+                    <a href="#" className="accordion-title">{strings.Lounge_SubHeader_HowToFindUs}</a>
                         <div className="accordion-content padding-none" data-tab-content>
                         {this.state.geoLocationSuccess && <SimpleMap center={this.state.coord.center}/>}
         
@@ -108,7 +109,7 @@ export class GarageInfo extends React.Component {constructor(props){
                 </li>
             </ul><div className="footer show-for-small-only">
         <div className="panel-light footer-card">
-        <GarageFooter booking={booking}/>
+        <GarageFooter  language={booking.language} booking={booking}/>
         </div>
         </div>
             <a className="chat-bubble show-for-small-only t-chat-button" data-for="#pageChat"><i className="icon icon-2x icon-messages white"></i><span className="white">Chat</span></a>
