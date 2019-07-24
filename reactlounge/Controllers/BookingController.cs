@@ -56,10 +56,13 @@ namespace reactlounge.Controllers
             model.ShowTermsAndConditions = true;
             model.VatNumber = "Vat number";
             model.CompanyNumber = "Company number";
-            model.Facilities = Facilities.DisabledAccess & Facilities.Magazines;
+          
         model.ChatToken =
                 "H4sIAAAAAAAEAAXBSxKCIAAA0AOxUCOSFm600rEEU4txWWgOYajlD07fe4Xh1smoJG2xSXkZNHjEgNDuLIXQGxxHD9aAGiwROghEW2Lsd4KNmnoV5lcI0ch6PZoqK6YdtyVZRKin++0Zxi2Rzj7i3bwqn5HA/znZ4G5fYQXjNjnO5XqxEq3ZB9McTinSLv/S1AK17MmweN4fI9nOYpgAAAA=";
-            model.Language = "qwerty";
+            model.Language = "en";
+            model.Facilities.Add("Waiting area");
+            model.Facilities.Add("Fruit machine");
+            model.OpeningHours = "9 to 5"; // will need to do this server side
             return model;
         }
 

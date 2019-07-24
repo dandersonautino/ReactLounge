@@ -28,14 +28,15 @@ namespace Autino.Lounge.Services.Models.Booking
         public bool ShowTermsAndConditions { get; set; }
         public string VatNumber { get; set; }
         public string CompanyNumber { get; set; }
-        public List<GarageOpeningTime> OpeningHours { get; set; }
-        public Facilities Facilities { get; set; }
+        public string OpeningHours { get; set; }
+        public List<string> Facilities { get; set; }
         public string Language { get; set; }
 
         public BookingExtendedModel()
         {
+            Facilities= new List<string>();
             Repairs = new List<RepairExtended>();
-            OpeningHours = new List<GarageOpeningTime>();
+      
             GarageCommunications = new List<GarageCommunicationMethodViewModel>();
 
         }

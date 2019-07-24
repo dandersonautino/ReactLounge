@@ -9,14 +9,14 @@ import LocalizedStrings from 'react-localization';
 import GetTranslations from '../Resources/GetTranslations';
 export class Booking extends Component {
  
-
+    state = { 
+        booking: [],
+        loading: true 
+       };
     constructor() {
         super();
        var s = new LocalizedStrings(data);
-        this.state = { 
-             booking: [],
-             loading: true 
-            };
+       
 
         fetch(process.env.REACT_APP_API_PREFIX+'/api/booking/getbooking')
             .then(response => response.json())
@@ -28,9 +28,6 @@ export class Booking extends Component {
           
            
     }
-  
-  
-   
   
  renderBooking(booking) {
         if (booking.inviteExpired) {

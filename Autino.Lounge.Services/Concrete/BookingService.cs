@@ -14,7 +14,6 @@ namespace Autino.Lounge.Services.Concrete
         {
            
             var client = await GetClient($"api/booking/{bookingRef}");
-
             var response = await client 
                 .AddCustomHeader("X-BAYCONNECT-GARAGEREF", garageRef.ToString())
                 .GetAsyncAndGetResponse<BookingExtendedModel>();
